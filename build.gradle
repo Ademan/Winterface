@@ -1,3 +1,9 @@
+buildscript {
+    dependencies {
+	classpath files('libs/gradle-witness.jar')
+    }
+}
+
 apply plugin: 'java'
 
 repositories {
@@ -33,6 +39,46 @@ dependencies {
 	provided "org.freenetproject:fred:0.7.5.1470"
 	provided "org.freenetproject:freenet-ext:29"
 	compile "junit:junit:4.11"
+}
+ 
+apply plugin: 'witness'
+
+dependencyVerification {
+    verify = [
+        'org.hamcrest:hamcrest-library:711d64522f9ec410983bd310934296da134be4254a125080a0416ec178dfad1c',
+        'org.mockito:mockito-all:b2a63307d1dce3aa1623fdaacb2327a4cd7795b0066f31bf542b1e8f2683239e',
+        'org.bouncycastle:bcprov-jdk15on:96b4b8d46e38e5a08b5ee6eec23c5951d95bdac35c08f935e999bbbe6b15ba9d',
+        'org.apache.velocity:velocity:ec92dae810034f4b46dbb16ef4364a4013b0efb24a8c5dd67435cae46a290d8e',
+        'org.apache.velocity:velocity-tools:b174eb36bc48c25dce10571c7d3d5dca4e4c1b3e2e31a92b9ed68fe9dea688d9',
+        'org.slf4j:slf4j-log4j12:62382d95633a91aa7ce2976f1c6469164418dac4fcf231021d8c11938e219343',
+        'org.eclipse.jetty.aggregate:jetty-server:0aa80fc62f7a585220a99f4bea7c40a43d209f8e14a9165d3633fb6920df0a3c',
+        'org.eclipse.jetty.aggregate:jetty-servlet:a6255a6f2a1aa77ba44367c91e9356f2b4131c4a8696521a4cb1797d23030978',
+        'org.eclipse.jetty.aggregate:jetty-webapp:3971ffe31bf548c98a7c56d8ef93d8e5764ca1d6d0471a1887850bd663e977ca',
+        'commons-io:commons-io:cc6a41dc3eaacc9e440a6bd0d2890b20d36b4ee408fe2d67122f328bb6e01581',
+        'com.google.guava:guava:a82f12e66fe140d9180b67ba136cd5b236df77e8303f7efe29cdd20d66e740a5',
+        'junit:junit:90a8e1603eeca48e7e879f3afbc9560715322985f39a274f6f6070b43f9d06fe',
+        'org.hamcrest:hamcrest-core:66fdef91e9739348df7a096aa384a5685f4e875584cce89386a7a47251c4d8e9',
+        'commons-collections:commons-collections:87363a4c94eaabeefd8b930cb059f66b64c9f7d632862f23de3012da7660047b',
+        'commons-lang:commons-lang:2c73b940c91250bc98346926270f13a6a10bb6e29d2c9316a70d134e382c873e',
+        'commons-beanutils:commons-beanutils:24bcaa20ccbdc7c856ce0c0aea144566943403e2e9f27bd9779cda1d76823ef4',
+        'commons-digester:commons-digester:05662373044f3dff112567b7bb5dfa1174e91e074c0c727b4412788013f49d56',
+        'commons-chain:commons-chain:e408f72da5ed4c5db6ae19e8c3b7ee36259c36c05f7a77f15509a014bfe7bcaa',
+        'commons-logging:commons-logging:9e8d01f172301b966f1f404aa6fc0bdbec478ae9197256ad95bfcad1ef927601',
+        'commons-validator:commons-validator:d3680636c84e5cea6bfe43f338f8bab03d6a3e18cc663fc8b671684ef66c0c8d',
+        'dom4j:dom4j:50bd5c21b5fbd27b8bbb5f8050544b53f49a4480fd347ce9c46d55c706015156',
+        'oro:oro:e00ccdad5df7eb43fdee44232ef64602bf63807c2d133a7be83ba09fd49af26e',
+        'sslext:sslext:4ec193f85bf3c5e84be4ef79fe1e8e71493b317858735cfe062c4c54f818c312',
+        'org.apache.struts:struts-core:a7881710517dd6a50fa81c04d494e1493ad326bcc1adf2eb9493e5eb9ca9e077',
+        'org.apache.struts:struts-taglib:0b54adf308e50d8fdb82066b058bfa57ee244d1cdcf4bf7b6c12fb11d91f44a5',
+        'org.apache.struts:struts-tiles:3d66e61734b2ddad6e4b34aaa2382480ad6061e59e5e178e346cc275c0429e57',
+        'org.slf4j:slf4j-api:367b909030f714ee1176ab096b681e06348f03385e98d1bce0ed801b5452357e',
+        'log4j:log4j:7ae3fdde7ab0cae4735a2aec04381ad9b6e25c93d24205f3ed315d9866f12fe1',
+        'org.eclipse.jetty.orbit:javax.servlet:a2cc192a076d9effd10becee8aacbe157f0fe2010fd4322e58aaeff198e56dbe',
+        'antlr:antlr:2a53206963dfa78e33746b6f8367f7d9970fa36865a825d7bfbce1784dc0f4d4',
+        'logkit:logkit:7ea93b4fc21f3d05ed224b168a025f864db75ddfddc2343e1ec29a386d7501e0',
+        'avalon-framework:avalon-framework:17731fe321a7a7cc3b56cb797634b8ec29fa0322004886a1523bbc7bc7eecf71',
+        'javax.servlet:servlet-api:8478b902d0815ed066db860fb14cc5d404548d4b6348ab930b46270fcddeba68',
+    ]
 }
 
 jar {
